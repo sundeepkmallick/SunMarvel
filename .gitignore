@@ -1,0 +1,44 @@
+# Build outputs
+/build/
+/out/
+/captures
+.externalNativeBuild
+.cxx
+/reports/
+/test-results/
+/coverage/
+
+# IDE files
+*.iml
+.idea
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+.gradle/
+
+#Local configuration
+/local.properties
+/gradle-local.properties
+
+# Sensitive data
+secret.properties
+.env
+
+# Temporary files
+*.swp
+*~
+*.bak
+*.hprof
+*.trace
+
+# Data Binding and Room generated code
+/app/build/generated/data_binding_base_class_source/
+/app/build/generated/source/kapt/
+# Third party Libraries
+/libs/
+
+# OS Specific
+.DS_Store
