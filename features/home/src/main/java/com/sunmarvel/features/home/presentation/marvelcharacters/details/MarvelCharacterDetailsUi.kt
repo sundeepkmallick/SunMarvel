@@ -123,10 +123,7 @@ fun MarvelCharacterDetails(
                         AsyncImage(
                             model = ImageRequest.Builder(LocalContext.current)
                                 .data(
-                                    marvelCharacter.thumbnail.path.replace(
-                                        "http://",
-                                        "https://"
-                                    ) + "/standard_xlarge." + marvelCharacter.thumbnail.extension
+                                    marvelCharacter.thumbnail.path.ifBlank { "" }
                                 )
                                 .crossfade(true)
                                 .build(),
