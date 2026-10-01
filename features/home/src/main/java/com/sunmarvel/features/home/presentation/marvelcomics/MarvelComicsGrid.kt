@@ -73,9 +73,7 @@ fun GridItem(item: ComicsResult) {
         ) {
             AsyncImage(
                 model = ImageRequest.Builder(LocalContext.current)
-                    .data(
-                        item.thumbnail.path.ifBlank { "" }
-                    )
+                    .data(item.thumbnail.path.ifBlank { null })
                     .crossfade(true)
                     .build(),
                 contentDescription = item.title,
