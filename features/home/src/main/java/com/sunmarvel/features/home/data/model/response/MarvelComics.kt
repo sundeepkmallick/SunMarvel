@@ -166,6 +166,6 @@ data class Item3(
 data class ComicsEvents(
     val available: Long = 0,
     val collectionURI: String = "",
-    val items: JsonArray = JsonArray(),
+    val items: JsonArray = JsonArray(listOf()),
     val returned: Long = 0,
 )
