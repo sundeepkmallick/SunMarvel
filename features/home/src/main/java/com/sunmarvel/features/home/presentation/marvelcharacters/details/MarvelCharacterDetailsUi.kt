@@ -122,9 +122,7 @@ fun MarvelCharacterDetails(
                     ) {
                         AsyncImage(
                             model = ImageRequest.Builder(LocalContext.current)
-                                .data(
-                                    marvelCharacter.thumbnail.path.ifBlank { "" }
-                                )
+                                .data(marvelCharacter.thumbnail.path.ifBlank { null })
                                 .crossfade(true)
                                 .build(),
                             contentDescription = marvelCharacter.name,
