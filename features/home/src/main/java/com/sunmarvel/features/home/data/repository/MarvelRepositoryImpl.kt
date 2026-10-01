@@ -80,6 +80,13 @@ class MarvelRepositoryImpl @Inject constructor(
         description = listOf(biography.fullName, biography.publisher, biography.placeOfBirth)
             .filter { it.isNotBlank() }
             .joinToString(" • "),
+        fullName = biography.fullName,
+        alterEgos = biography.alterEgos,
+        aliases = biography.aliases,
+        placeOfBirth = biography.placeOfBirth,
+        firstAppearance = biography.firstAppearance,
+        publisher = biography.publisher,
+        alignment = biography.alignment,
         thumbnail = Thumbnail(
             path = images.lg.ifBlank { images.md },
             extension = ""
