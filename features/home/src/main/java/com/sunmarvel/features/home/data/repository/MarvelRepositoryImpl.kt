@@ -81,11 +81,8 @@ class MarvelRepositoryImpl @Inject constructor(
             .filter { it.isNotBlank() }
             .joinToString(" • "),
         thumbnail = Thumbnail(
-            path = images.lg.ifBlank { images.md }.removeSuffix(".jpg").removeSuffix(".png"),
-            extension = when {
-                images.lg.endsWith(".png", true) -> "png"
-                else -> "jpg"
-            }
+            path = images.lg.ifBlank { images.md },
+            extension = ""
         ),
         resourceURI = "https://akabab.github.io/superhero-api/api/id/$id.json",
         urls = emptyList()
@@ -97,8 +94,8 @@ class MarvelRepositoryImpl @Inject constructor(
         description = authorNames.joinToString(", ").ifBlank { null },
         issueNumber = firstPublishYear?.toLong() ?: 0,
         thumbnail = ComicsThumbnail(
-            path = coverId?.let { "https://covers.openlibrary.org/b/id/$it-L" } ?: "",
-            extension = "jpg"
+            path = coverId?.let { "https://covers.openlibrary.org/b/id/$it-L.jpg" } ?: "",
+            extension = ""
         )
     )
 }
