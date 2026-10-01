@@ -81,10 +81,7 @@ fun GridItem(navController: NavHostController, item: Result, showMarvelCharacter
             AsyncImage(
                 model = ImageRequest.Builder(LocalContext.current)
                     .data(
-                        item.thumbnail.path.replace(
-                            "http://",
-                            "https://"
-                        ) + "/standard_xlarge." + item.thumbnail.extension
+                        item.thumbnail.path.ifBlank { "" }
                     )
                     .crossfade(true)
                     .build(),
