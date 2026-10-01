@@ -59,113 +59,113 @@ data class ComicsResult(
 
 @Serializable
 data class TextObject(
-    val type: String,
-    val language: String,
-    val text: String,
+    val type: String = "",
+    val language: String = "",
+    val text: String = "",
 )
 
 @Serializable
 data class ComicsResultUrl(
-    val type: String,
-    val url: String,
+    val type: String = "",
+    val url: String = "",
 )
 
 @Serializable
 data class ComicsSeries(
-    val resourceURI: String,
-    val name: String,
+    val resourceURI: String = "",
+    val name: String = "",
 )
 
 @Serializable
 data class Variant(
-    val resourceURI: String,
-    val name: String,
+    val resourceURI: String = "",
+    val name: String = "",
 )
 
 @Serializable
 data class Collection(
-    val resourceURI: String,
-    val name: String,
+    val resourceURI: String = "",
+    val name: String = "",
 )
 
 @Serializable
 data class CollectedIssue(
-    val resourceURI: String,
-    val name: String,
+    val resourceURI: String = "",
+    val name: String = "",
 )
 
 @Serializable
 data class Date(
-    val type: String,
-    val date: String,
+    val type: String = "",
+    val date: String = "",
 )
 
 @Serializable
 data class Price(
-    val type: String,
-    val price: Double,
+    val type: String = "",
+    val price: Double = 0.0,
 )
 
 @Serializable
 data class ComicsThumbnail(
-    val path: String,
-    val extension: String,
+    val path: String = "",
+    val extension: String = "",
 )
 
 @Serializable
 data class Image(
-    val path: String,
-    val extension: String,
+    val path: String = "",
+    val extension: String = "",
 )
 
 @Serializable
 data class Creators(
-    val available: Long,
-    val collectionURI: String,
-    val items: List<CreatorItem>,
-    val returned: Long,
+    val available: Long = 0,
+    val collectionURI: String = "",
+    val items: List<CreatorItem> = emptyList(),
+    val returned: Long = 0,
 )
 
 @Serializable
 data class CreatorItem(
-    val resourceURI: String,
-    val name: String,
-    val role: String,
+    val resourceURI: String = "",
+    val name: String = "",
+    val role: String = "",
 )
 
 @Serializable
 data class Characters(
-    val available: Long,
-    val collectionURI: String,
-    val items: List<CharacterItem>,
-    val returned: Long,
+    val available: Long = 0,
+    val collectionURI: String = "",
+    val items: List<CharacterItem> = emptyList(),
+    val returned: Long = 0,
 )
 
 @Serializable
 data class CharacterItem(
-    val resourceURI: String,
-    val name: String,
+    val resourceURI: String = "",
+    val name: String = "",
 )
 
 @Serializable
 data class ComicsStories(
-    val available: Long,
-    val collectionURI: String,
-    val items: List<Item3>,
-    val returned: Long,
+    val available: Long = 0,
+    val collectionURI: String = "",
+    val items: List<Item3> = emptyList(),
+    val returned: Long = 0,
 )
 
 @Serializable
 data class Item3(
-    val resourceURI: String,
-    val name: String,
-    val type: String,
+    val resourceURI: String = "",
+    val name: String = "",
+    val type: String = "",
 )
 
 @Serializable
 data class ComicsEvents(
-    val available: Long,
-    val collectionURI: String,
-    val items: JsonArray,
-    val returned: Long,
+    val available: Long = 0,
+    val collectionURI: String = "",
+    val items: JsonArray = JsonArray(),
+    val returned: Long = 0,
 )
