@@ -40,4 +40,25 @@ class NetworkModule {
     @Named(Scope.NONE)
     fun provideRequestHandler(@Named(Scope.NONE) client: HttpClient): RequestHandler =
         RequestHandler(client)
+
+    @Provides
+    @Named("openLibrary")
+    fun provideOpenLibraryClient(): HttpClient =
+        provideHttpClientBuilder()
+            .protocol(URLProtocol.HTTPS)
+            .host("openlibrary.org")
+            .headers(
+                listOf(
+                    HttpHeaders.ContentType to "application/json; charset=utf-8",
+                    HttpHeaders.Accept to "application/json",
+                )
+            )
+            .authType(AuthType.NONE)
+            .build()
+
+    @Provides
+    @Named("openLibrary")
+    fun provideOpenLibraryRequestHandler(
+        @Named("openLibrary") client: HttpClient
+    ): RequestHandler = RequestHandler(client)
 }
