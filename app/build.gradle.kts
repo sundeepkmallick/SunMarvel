@@ -32,9 +32,6 @@ android {
             isMinifyEnabled = false
             enableAndroidTestCoverage = true
             enableUnitTestCoverage = true
-            buildConfigField("String", "BASE_URL_HOST", "\"gateway.marvel.com\"")
-            buildConfigField("String", "MARVEL_PUBLIC_KEY", "\"<your public key>\"")
-            buildConfigField("String", "MARVEL_PRIVATE_KEY", "\"<>your private key>\"")
         }
     }
 

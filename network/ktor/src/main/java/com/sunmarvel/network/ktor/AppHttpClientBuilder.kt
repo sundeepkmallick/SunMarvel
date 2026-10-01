@@ -78,6 +78,7 @@ class AppHttpClientBuilder @Inject constructor() {
                 json(
                     Json {
                         explicitNulls = false
+                        coerceInputValues = true
                         /*prettyPrint = true
                         isLenient = true*/
                         ignoreUnknownKeys = true

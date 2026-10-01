@@ -26,16 +26,9 @@ class MainActivity: ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            val viewModel: MainViewModel = hiltViewModel()
-            viewModel.getPrivateApiKey()
-            val privateApiKey by viewModel.privateApiKey.collectAsState()
-
             AppTheme {
                 Surface {
-                    if (!privateApiKey.isNullOrEmpty()) {
-                        RootNavigationGraph(rememberNavController())
-                    }
-
+                    RootNavigationGraph(rememberNavController())
                 }
             }
         }

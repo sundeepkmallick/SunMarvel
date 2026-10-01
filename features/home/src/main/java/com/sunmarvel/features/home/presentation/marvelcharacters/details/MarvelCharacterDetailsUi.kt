@@ -122,12 +122,7 @@ fun MarvelCharacterDetails(
                     ) {
                         AsyncImage(
                             model = ImageRequest.Builder(LocalContext.current)
-                                .data(
-                                    marvelCharacter.thumbnail.path.replace(
-                                        "http://",
-                                        "https://"
-                                    ) + "/standard_xlarge." + marvelCharacter.thumbnail.extension
-                                )
+                                .data(marvelCharacter.thumbnail.path.ifBlank { null })
                                 .crossfade(true)
                                 .build(),
                             contentDescription = marvelCharacter.name,
@@ -178,9 +173,52 @@ fun MarvelCharacterDetails(
                                     .align(Alignment.Start),
                                 style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Medium),
                             )
+                            CharacterBiography(marvelCharacter)
                             ComicsList(marvelCharacter.comics)
                         }
                     }
+                }
+            }
+        }
+    }
+}
+
+
+@Composable
+private fun CharacterBiography(character: Result) {
+    val details = listOf(
+        "Description" to character.description,
+        "Full name" to character.fullName,
+        "Alter egos" to character.alterEgos,
+        "Aliases" to character.aliases.joinToString(", "),
+        "Place of birth" to character.placeOfBirth,
+        "First appearance" to character.firstAppearance,
+        "Publisher" to character.publisher,
+        "Alignment" to character.alignment,
+    ).filter { it.second.isNotBlank() }
+
+    if (details.isNotEmpty()) {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp, vertical = 12.dp)
+        ) {
+            Text(
+                text = "Character Details",
+                style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Medium)
+            )
+            details.forEach { (label, value) ->
+                Column(modifier = Modifier.padding(top = 10.dp)) {
+                    Text(
+                        text = label,
+                        style = MaterialTheme.typography.labelLarge,
+                        fontWeight = FontWeight.Bold
+                    )
+                    Text(
+                        text = value,
+                        modifier = Modifier.padding(top = 2.dp),
+                        style = MaterialTheme.typography.bodyMedium
+                    )
                 }
             }
         }
